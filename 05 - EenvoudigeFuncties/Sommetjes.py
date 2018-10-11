@@ -41,3 +41,5 @@ print(u2)
 print(u3)
 print(u4)
 print(u5)
+
+#a, b, a + b * 10, *100, *1000,*10000 telkens
