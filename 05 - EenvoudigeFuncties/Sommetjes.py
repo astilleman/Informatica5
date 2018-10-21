@@ -43,3 +43,22 @@ print(u4)
 print(u5)
 
 #a, b, a + b * 10, *100, *1000,*10000 telkens
+###########################################################################################
+
+#invoer
+a = int(input('Geef a: '))
+b = int(input('Geef b: '))
+
+#berekening
+som1 = a + b
+som2 = (a + b) * 10
+som3 = (a + b) * 100
+som4 = (a + b) * 1000
+som5 = (a + b) * 10000
+
+#formattering
+print('{:>6d} + {:<6d} = {}'.format(a, b, som1))
+print('{:>6d} + {:<6d} = {}'.format(a * 10, b * 10, som2))
+print('{:>6d} + {:<6d} = {}'.format(a * 100, b * 100, som3))
+print('{:>6d} + {:<6d} = {}'.format(a * 1000, b * 1000, som4))
+print('{:>6d} + {:<6d} = {}'.format(a * 10000, b * 10000, som5))
