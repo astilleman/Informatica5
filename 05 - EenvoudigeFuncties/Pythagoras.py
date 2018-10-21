@@ -18,5 +18,19 @@ resultaat += ' en b = ' + str(b_op_honderdste) + ' is de schuine zijde ' + str(c
 print(resultaat)
 
 # formattering 1 regel en import bovenaan
+################################################################################
+from math import sqrt
+
+#invoer
+a = float(input('Geef a: '))
+b = float(input('Geef b: '))
+
+#berekening
+c = sqrt((a ** 2) + (b ** 2))
+
+#formattering
+zin ='In een rechthoekige driehoek met rechthoekszijden a = {:.2f} en b = {:.2f} is de schuine zijnde {:.2f}'
+print(zin.format(a, b, c))
+
 
 
