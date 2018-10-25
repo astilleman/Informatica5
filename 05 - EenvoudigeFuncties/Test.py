@@ -40,3 +40,6 @@
 #print(randint(10, 15))
 #print(randint(10, 15))
 #print(randint(10, 15))
+
+print('\N{LESS-THAN OR EQUAL TO}')
+print('\N{LESS-THAN ABOVE SLANTED EQUAL ABOVE GREATER-THAN ABOVE SLANTED EQUAL}')

@@ -1,45 +1,13 @@
-#import math
+from math import sqrt
+#invoer
+x = float(input('Geef een getal x: '))
 
-#getal = float(input('getal: '))
+#bewerking
+if x < 2:
+    print('{:.2f} ∉ dom(f)'.format(x))
 
-#print(math.sqrt(getal) + math.sqrt(getal - 1)) TE LANG
+elif x == 2:
+    print('2.00 is nulpunt van f')
 
-#####################################################
-
-#from math import sqrt as vierkantswortel
-
-#getal = float(input('getal: '))
-
-#print(vierkantswortel(getal) +  vierkantswortel(getal - 1))
-
-#vierkantswortel totaal overbodig as weg
-
-#######################################################
-
-#print(pi)
-
-##########################################
-
-
-#from random import random, randint, seed
-
-#print(random())
-#print(random())
-#print(random())
-#print(random())
-
-#willekeurig getal tussen 0 en 1 grenzen inbegrepen
-
-##############################################################
-
-#from random import random, randint, seed
-
-#seed(1267)
-
-#print(randint(10, 15))
-#print(randint(10, 15))
-#print(randint(10, 15))
-#print(randint(10, 15))
-
-
-
+else:
+    print('f({:.2f}) = {:.2f}'.format(x, sqrt(x - 2)))
