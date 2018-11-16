@@ -14,4 +14,4 @@ while letter in woord and letter not in genoemde_letters:
 mes = gewonnen_bedrag
 
 #uitvoer
-print(gewonnen_bedrag)
+print(mes)

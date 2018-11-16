@@ -6,7 +6,7 @@ som, maximum  = 0, 0
 for i in range(n):
     getallen = int(input('Getal: '))
     som += getallen
-    if getallen > maximum :
+    if getallen > maximum:
         maximum = getallen
     elif maximum == 0:
         maximum = getallen
