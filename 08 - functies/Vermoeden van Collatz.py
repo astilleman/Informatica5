@@ -3,10 +3,17 @@ def volgend_collatz_getal(n):
         volgend_getal = n // 2
     else:
         volgend_getal = (n * 3) + 1
-    return(volgend_getal)
-
-print(volgend_collatz_getal())
+    return volgend_getal
 
 def collatz(n):
-    while n <
+    cyclelengte = 1
+    while n > 1:
+        cyclelengte += 1
+        n = volgend_collatz_getal(n)
+    return cyclelengte
+
+
+
+
+
 #alles kopiëren behalve print
