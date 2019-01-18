@@ -39,3 +39,23 @@ message = 'Getal {} wandelt naar positie ({:.2f}, {:.2f}).'.format(getal, x_coö
 
 #uitvoer
 print(message)
+
+######################################################################################################korter
+
+#invoer
+g = float(input('Geef een kommagetal: '))
+
+#berekening
+from math import sin, cos, radians
+x_coördinaat, y_coördinaat = 0, 0
+g = str(g)
+for i in range(len(g)):
+    if 48 <= ord(g[i]) <= 57:
+        x_coördinaat += sin(radians(int(g[i]) * 36))
+        y_coördinaat += cos(radians(int(g[i]) * 36))
+
+#formattering
+message = 'Getal {} wandelt naar positie ({:.2f}, {:.2f}).'.format(g, x_coördinaat, y_coördinaat)
+
+#uitvoer
+print(message)
