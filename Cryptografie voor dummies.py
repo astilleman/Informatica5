@@ -1,4 +1,4 @@
-'''def versleutel_woord(woord, plaatsen):
+def versleutel_woord(woord, plaatsen):
     for i in range(len(woord)):
         if 97 <= ord(woord[i]) <= 122:
             woord = woord[:i] + woord[i].upper() + woord[i + 1:]
@@ -8,7 +8,7 @@
             woord = woord[:i] + ' ' + woord[i + 1:]
     return woord
 
-print(versleutel_woord('maar', 7))
+#print(versleutel_woord('maar', 7))
 
 def versleutel_zin(zin, plaatsen):
     p_spatie = zin.find(' ')
@@ -22,7 +22,7 @@ def versleutel_zin(zin, plaatsen):
 
     zinnetje += versleutel_woord(zin[p_spatie + 1:], plaatsen)
     return zinnetje
-print(versleutel_zin('Persoonsgevens van maar liefst 143 miljoen Amerikanen werden er gehackt.', 12))'''
+#print(versleutel_zin('Persoonsgevens van maar liefst 143 miljoen Amerikanen werden er gehackt.', 12))
 
 #############################################################"
 
@@ -40,7 +40,9 @@ print(versleutel_zin('Persoonsgevens van maar liefst 143 miljoen Amerikanen werd
 
     return verleuteld_woord
 
-print(versleutel_woord('kaas', 1))'''
+print(versleutel_woord('kaas', 1))
+
+#####################################################
 
 def versleutel_woord(woord, n):
     code = ''
@@ -74,4 +76,4 @@ def versleutel_zin(zin, getal):
     if len(zin) > 0:
         code += '@' + versleutel_woord(zin, getal)
 
-    return code
+    return code'''
