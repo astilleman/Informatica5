@@ -30,3 +30,4 @@ def versleutel(y, x):
 
 #'Dmzbzwce wx rm szikpb mv dqmz pmb tmdmv!'
 #'Byn fypyh vymnuun piil 10% ocn xchayh xcy ayvyolyh yh piil 90% ocn biy dcd xuulij lyuayyln.'
+#toets !!! versleutel en roteer!!!

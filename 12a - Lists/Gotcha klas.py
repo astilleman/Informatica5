@@ -16,3 +16,21 @@ def ik_heb_gemoord(lijst, moordenaar):
 
 
 print(ik_heb_gemoord(['jan', 'piet', 'joris', 'korneel'],'joris'))
+
+#zelf thuis op deze manier gedaan
+def ik_ben_vermoord(lijst, slachtoffer):
+
+    if len(lijst) > 1:
+        #nieuwe opdracht moordenaar
+        index_slachtoffer = lijst.index(slachtoffer)
+        index_nieuw_slachtoffer = (index_slachtoffer + 1) % len(lijst)
+
+        #slachtoffer schrappen
+        lijst[index_slachtoffer: index_slachtoffer + 1] = []
+    else:
+        index_nieuw_slachtoffer = 0
+
+    return lijst[index_nieuw_slachtoffer], lijst
+
+#print(ik_ben_vermoord(['jan', 'piet', 'joris'],'joris'))
+#print(ik_ben_vermoord(['jan'],'jan'))

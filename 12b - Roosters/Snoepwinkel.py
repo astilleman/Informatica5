@@ -38,6 +38,11 @@ def sorteer(lijst):
 
 #print([('Lays Paprika', 3.94), ('Napoleon', 1.48), ('Milky Way', 3.64), ('M&M', 3.06), ('Crocky Zout', 3.62), ('Bounty', 1.86)])
 
+'''def winkelbriefje(lijst):
+    briefje = []
+    for i in range(len(lijst)):
+        briefje.append(lijst[i][0])
+    return briefje'''
 
 
 

@@ -30,3 +30,36 @@ message = '{} ({})'.format(diagnose, aantal_afwijkingen)
 
 #uitvoer
 print(message)
+
+###########################################################################################################################
+
+#invoer
+aminozuren = input('Geef de reeks opeenvolgende aminozuren in het eiwit: ')
+m = int(input('Geef een getal m: '))
+n = int(input('Geef een getal die groter dan of gelijk is aan n: '))
+
+#berekening
+plaats_afwijking, naam_afwijking, aantal_afwijkingen = '', '', 0
+for i in range(n):
+    afwijking = input('Geef een afwijking van het eiwit: ')
+
+    for i in range(len(afwijking)):
+        if afwijking[i] in '0123456789':
+            plaats_afwijking += afwijking[i]
+        else:
+            naam_afwijking += afwijking[i]
+
+    if aminozuren[int(plaats_afwijking) - 1] in naam_afwijking:
+        aantal_afwijkingen += 1
+
+    if aantal_afwijkingen >= m:
+        diagnose = 'positief'
+    else:
+        diagnose = 'negatief'
+    naam_afwijking, plaats_afwijking = '', ''
+
+#formattering
+message = '{}({})'.format(diagnose, aantal_afwijkingen)
+
+#uitvoer
+print(message)

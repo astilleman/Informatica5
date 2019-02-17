@@ -25,6 +25,29 @@ def slinger(woord, r):
 
 #print(slinger('khuskhus', 0))
 
+###########################################################################################"
+def graad(woord):
+    p_2de_woord = woord.find(woord[0], 1)
+    lengte_woord = len(woord[p_2de_woord:])
+    if woord[:lengte_woord] == woord[p_2de_woord:]:
+        graad = lengte_woord
+    else:
+        graad = 0
+
+    return graad
+
+#print(graad('alfalfa'))
+
+def slinger(woord, r):
+    if graad(woord) == 0:
+        slingerwoord = r * woord
+    else:
+        slingerwoord = r * woord[:len(woord) - graad(woord)] + woord[len(woord) - graad(woord):]
+
+    return slingerwoord
+
+#print(slinger('onion', 7))
+
 
 
 

@@ -12,3 +12,17 @@ while invoer != 'STOP':
 
     invoer = input('invoer: ')
 
+
+#############################################
+'''#invoer
+invoer = input('Geef een invoer: ')
+
+#berekening
+lijst = []
+while invoer != 'STOP':
+    if invoer != '?':
+        lijst.append(invoer)
+    elif invoer != []:
+        print(lijst.pop(0))
+    invoer = input('Geef een invoer: ')'''
+

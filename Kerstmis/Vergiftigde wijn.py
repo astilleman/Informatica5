@@ -26,3 +26,38 @@ message = 'Fles #{} is vergiftigd.'.format(flesnummer)
 
 #uitvoer
 print(message)
+
+#####################################################################################################"
+#invoer
+n = int(input('Aantal overleden gevangenen: '))
+
+#berekening
+genoemde_letters = ''
+reeks_gevangenen = 'JIHGFEDCBA'
+for i in range(n):
+    letter_gevangene = input('Geef de letter van de overleden gevangene: ')
+    genoemde_letters += letter_gevangene
+
+#berekening binaire omzetting
+binaire_reeks_gevangenen = ''
+for i in range(len(reeks_gevangenen)):
+    if reeks_gevangenen[i] in genoemde_letters:
+        binaire_reeks_gevangenen = binaire_reeks_gevangenen[:i] + '1' + binaire_reeks_gevangenen[i + 1:]
+    else:
+        binaire_reeks_gevangenen = binaire_reeks_gevangenen[:i] + '0' + binaire_reeks_gevangenen[i + 1:]
+
+print(binaire_reeks_gevangenen)
+
+#berekening flesnummer
+fles = 0
+for i in range(len(binaire_reeks_gevangenen)):
+    if binaire_reeks_gevangenen[i] == '1':
+        fles += 2 ** (len(binaire_reeks_gevangenen) - 1 - i)
+
+
+#formattering
+
+message = 'Fles #{} is vergiftigd.'.format(fles)
+
+#uitvoer
+print(message)
