@@ -6,7 +6,7 @@ def vlag(richting, kleuren):
 
     elif richting == 'verticaal':
         for kleur in kleuren[1:]:
-            message += ' ' + '| ' + kleur
+            message += ' ' + '| ' + kleur #' | '
 
     return message
 

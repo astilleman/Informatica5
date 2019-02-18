@@ -1,39 +1,46 @@
-def ik_heb_gemoord(lijst, moordenaar):
-    if len(lijst) > 1:
-        index_moordenaar = lijst.index(moordenaar)
-        if index_moordenaar < len(lijst) - 2:
-            index_slachtoffer = index_moordenaar + 1
-            index_nieuw_slachtoffer = index_moordenaar + 2
-            lijst.remove(lijst[index_slachtoffer])
-        elif index_moordenaar == len(lijst) - 2:
-            index_slachtoffer = index_moordenaar + 1
-            index_nieuw_slachtoffer = 0
-            lijst.remove(lijst[index_slachtoffer])
-        elif index_moordenaar == len(lijst) - 1:
-            index_slachtoffer = 0
-            index_nieuw_slachtoffer = 1
-            lijst.remove(lijst[index_slachtoffer])
-    else:
-        index_nieuw_slachtoffer = 0
+from operator import itemgetter
 
-    return lijst[index_nieuw_slachtoffer], lijst
+def bereken_prijs(lijst):
+    prijs = 0
+    for item in lijst:
+        prijs += item[1]
+    return prijs
 
-#print(ik_heb_gemoord(['jan', 'piet', 'joris', 'korneel'],'joris'))
-#print(ik_heb_gemoord(['jan'],'jan'))
+#print(bereken_prijs([('Crocky Zout', 1.39)]))
+#print(bereken_prijs([('Lays Paprika', 3.94), ('Napoleon', 1.48), ('Milky Way', 3.64), ('M&M', 3.06), ('Crocky Zout', 3.62), ('Bounty', 1.86)]))
 
-def ik_ben_vermoord(lijst, slachtoffer):
-    if len(lijst) > 1:
-        index_slachtoffer = lijst.index(slachtoffer)
-        if index_slachtoffer != len(lijst) - 1:
-            index_nieuw_slachtoffer = index_slachtoffer + 1
-            lijst.remove(lijst[index_slachtoffer])
-        else:
-            index_nieuw_slachtoffer = 0
-            lijst.remove(lijst[index_slachtoffer])
-    else:
-        index_nieuw_slachtoffer = 0
+def bereken_prijs(lijst):
+    prijs = 0
+    for i in range(len(lijst)):
+        prijs += lijst[i][1]
+    return prijs
 
-    return lijst[index_nieuw_slachtoffer], lijst
+#print(bereken_prijs([('Crocky Zout', 1.39)]))
+#print(bereken_prijs([('Lays Paprika', 3.94), ('Napoleon', 1.48), ('Milky Way', 3.64), ('M&M', 3.06), ('Crocky Zout', 3.62), ('Bounty', 1.86)]))
 
-print(ik_ben_vermoord(['jan', 'piet', 'joris'],'joris'))
-print(ik_ben_vermoord(['jan'],'jan'))
+def winkelbriefje(lijst):
+    briefje = []
+    for item in lijst:
+        briefje.append(item[0])
+    return briefje
+
+#print(winkelbriefje([('Crocky Zout', 1.39)]))
+#print(winkelbriefje([('Lays Paprika', 3.94), ('Napoleon', 1.48), ('Milky Way', 3.64), ('M&M', 3.06), ('Crocky Zout', 3.62), ('Bounty', 1.86)]))
+
+def winkelbriefje(lijst):
+    briefje = []
+    for i in range(len(lijst)):
+        briefje.append(lijst[i][0])
+    return briefje
+
+#print(winkelbriefje([('Crocky Zout', 1.39)]))
+#print(winkelbriefje([('Lays Paprika', 3.94), ('Napoleon', 1.48), ('Milky Way', 3.64), ('M&M', 3.06), ('Crocky Zout', 3.62), ('Bounty', 1.86)]))
+
+def sorteer(lijst):
+    lijst.sort(key=itemgetter(1))
+    return lijst
+
+#print(sorteer([('Crocky Zout', 1.39)]))
+#print(sorteer([('Lays Paprika', 3.94), ('Napoleon', 1.48), ('Milky Way', 3.64), ('M&M', 3.06), ('Crocky Zout', 3.62), ('Bounty', 1.86)]))
+
+
