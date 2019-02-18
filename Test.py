@@ -1,46 +1,40 @@
-from operator import itemgetter
+def volgende_rij(lijst):
+    next_row = []
+    for i in range(1, len(lijst)):
+        if lijst[i] == lijst[i - 1]:
+            next_row.append(lijst[i])
+        elif lijst[i] in 'GR' and lijst[i - 1] in 'GR':
+            next_row.append('Y')
+        elif lijst[i] in 'GY' and lijst[i - 1] in 'GY':
+            next_row.append('R')
+        elif lijst[i] in 'YR' and lijst[i - 1] in 'YR':
+            next_row.append('G')
+    return next_row
 
-def bereken_prijs(lijst):
-    prijs = 0
-    for item in lijst:
-        prijs += item[1]
-    return prijs
+#print(volgende_rij(['G', 'G', 'G', 'G', 'G']))
+#print(volgende_rij(['Y', 'R', 'G', 'Y', 'Y']))
 
-#print(bereken_prijs([('Crocky Zout', 1.39)]))
-#print(bereken_prijs([('Lays Paprika', 3.94), ('Napoleon', 1.48), ('Milky Way', 3.64), ('M&M', 3.06), ('Crocky Zout', 3.62), ('Bounty', 1.86)]))
+def driehoek(lijst):
+    triangle = [lijst]
+    for i in range(1, len(lijst)):
+        triangle.append(volgende_rij(triangle[i - 1]))
+    return triangle
 
-def bereken_prijs(lijst):
-    prijs = 0
+#print(driehoek(['G', 'G', 'G', 'G', 'G']))
+#print(driehoek(['Y', 'R', 'G', 'Y', 'Y']))
+
+def kleuren(lijst):
+    green, red, yellow = 0, 0, 0
     for i in range(len(lijst)):
-        prijs += lijst[i][1]
-    return prijs
+        for j in range(len(lijst[i])):
+            if lijst[i][j] == 'G':
+                green += 1
+            elif lijst[i][j] == 'R':
+                red += 1
+            elif lijst[i][j] == 'Y':
+                yellow += 1
+    return green, red, yellow
 
-#print(bereken_prijs([('Crocky Zout', 1.39)]))
-#print(bereken_prijs([('Lays Paprika', 3.94), ('Napoleon', 1.48), ('Milky Way', 3.64), ('M&M', 3.06), ('Crocky Zout', 3.62), ('Bounty', 1.86)]))
-
-def winkelbriefje(lijst):
-    briefje = []
-    for item in lijst:
-        briefje.append(item[0])
-    return briefje
-
-#print(winkelbriefje([('Crocky Zout', 1.39)]))
-#print(winkelbriefje([('Lays Paprika', 3.94), ('Napoleon', 1.48), ('Milky Way', 3.64), ('M&M', 3.06), ('Crocky Zout', 3.62), ('Bounty', 1.86)]))
-
-def winkelbriefje(lijst):
-    briefje = []
-    for i in range(len(lijst)):
-        briefje.append(lijst[i][0])
-    return briefje
-
-#print(winkelbriefje([('Crocky Zout', 1.39)]))
-#print(winkelbriefje([('Lays Paprika', 3.94), ('Napoleon', 1.48), ('Milky Way', 3.64), ('M&M', 3.06), ('Crocky Zout', 3.62), ('Bounty', 1.86)]))
-
-def sorteer(lijst):
-    lijst.sort(key=itemgetter(1))
-    return lijst
-
-#print(sorteer([('Crocky Zout', 1.39)]))
-#print(sorteer([('Lays Paprika', 3.94), ('Napoleon', 1.48), ('Milky Way', 3.64), ('M&M', 3.06), ('Crocky Zout', 3.62), ('Bounty', 1.86)]))
-
+print(kleuren([['G', 'G', 'G', 'G', 'G'], ['G', 'G', 'G', 'G'], ['G', 'G', 'G'], ['G', 'G'], ['G']]))
+print(kleuren([['Y', 'R', 'G', 'Y', 'Y'], ['G', 'Y', 'R', 'Y'], ['R', 'G', 'G'], ['Y', 'G'], ['R']]))
 

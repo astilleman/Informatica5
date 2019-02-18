@@ -38,3 +38,10 @@ def kleuren(lijst):
 
 #print(kleuren([['G', 'G', 'G', 'G', 'G'], ['G', 'G', 'G', 'G'], ['G', 'G', 'G'], ['G', 'G'], ['G']]))
 #print(kleuren([['Y', 'R', 'G', 'Y', 'Y'], ['G', 'Y', 'R', 'Y'], ['R', 'G', 'G'], ['Y', 'G'], ['R']]))
+
+'''#betere versie
+def driehoek(lijst):
+    triangle = [lijst]
+    for i in range(1, len(lijst)):
+        triangle.append(volgende_rij(triangle[i - 1]))
+    return triangle'''
