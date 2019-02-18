@@ -34,3 +34,20 @@ def ik_ben_vermoord(lijst, slachtoffer):
 
 #print(ik_ben_vermoord(['jan', 'piet', 'joris'],'joris'))
 #print(ik_ben_vermoord(['jan'],'jan'))
+
+'''#denk juister
+def ik_ben_vermoord(lijst, slachtoffer):
+    if len(lijst) > 1:
+        
+        #slachtoffer schrappen
+        index_slachtoffer = lijst.index(slachtoffer)
+        lijst[index_slachtoffer:index_slachtoffer + 1] = []
+
+        #nieuwe opdracht moordenaar
+        index_nieuw_slachtoffer = index_slachtoffer % len(lijst)
+
+
+    else:
+        index_nieuw_slachtoffer = 0
+
+    return lijst[index_nieuw_slachtoffer], lijst'''

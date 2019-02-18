@@ -1,40 +1,36 @@
-def volgende_rij(lijst):
-    next_row = []
-    for i in range(1, len(lijst)):
-        if lijst[i] == lijst[i - 1]:
-            next_row.append(lijst[i])
-        elif lijst[i] in 'GR' and lijst[i - 1] in 'GR':
-            next_row.append('Y')
-        elif lijst[i] in 'GY' and lijst[i - 1] in 'GY':
-            next_row.append('R')
-        elif lijst[i] in 'YR' and lijst[i - 1] in 'YR':
-            next_row.append('G')
-    return next_row
+def ik_heb_gemoord(lijst, moordenaar):
+    if len(lijst) > 1:
+        #slachtoffer schrappen
+        index_moordenaar = lijst.index(moordenaar)
+        index_slachtoffer = (index_moordenaar + 1) % len(lijst)
+        lijst[index_slachtoffer:index_slachtoffer + 1] = []
 
-#print(volgende_rij(['G', 'G', 'G', 'G', 'G']))
-#print(volgende_rij(['Y', 'R', 'G', 'Y', 'Y']))
+        #nieuwe opdracht moordenaar
+        index_moordenaar = lijst.index(moordenaar)
+        index_nieuw_slachtoffer = (index_moordenaar + 1) % len(lijst)
+    else:
+        index_nieuw_slachtoffer = 0
 
-def driehoek(lijst):
-    triangle = [lijst]
-    for i in range(1, len(lijst)):
-        triangle.append(volgende_rij(triangle[i - 1]))
-    return triangle
+    return lijst[index_nieuw_slachtoffer], lijst
 
-#print(driehoek(['G', 'G', 'G', 'G', 'G']))
-#print(driehoek(['Y', 'R', 'G', 'Y', 'Y']))
+print(ik_heb_gemoord(['jan', 'piet', 'joris', 'korneel'],'joris'))
+print(ik_heb_gemoord(['jan'],'jan'))
 
-def kleuren(lijst):
-    green, red, yellow = 0, 0, 0
-    for i in range(len(lijst)):
-        for j in range(len(lijst[i])):
-            if lijst[i][j] == 'G':
-                green += 1
-            elif lijst[i][j] == 'R':
-                red += 1
-            elif lijst[i][j] == 'Y':
-                yellow += 1
-    return green, red, yellow
+def ik_ben_vermoord(lijst, slachtoffer):
+    if len(lijst) > 1:
 
-print(kleuren([['G', 'G', 'G', 'G', 'G'], ['G', 'G', 'G', 'G'], ['G', 'G', 'G'], ['G', 'G'], ['G']]))
-print(kleuren([['Y', 'R', 'G', 'Y', 'Y'], ['G', 'Y', 'R', 'Y'], ['R', 'G', 'G'], ['Y', 'G'], ['R']]))
+        #slachtoffer schrappen
+        index_slachtoffer = lijst.index(slachtoffer)
+        lijst[index_slachtoffer:index_slachtoffer + 1] = []
 
+        #nieuwe opdracht moordenaar
+        index_nieuw_slachtoffer = index_slachtoffer % len(lijst)
+
+
+    else:
+        index_nieuw_slachtoffer = 0
+
+    return lijst[index_nieuw_slachtoffer], lijst
+
+print(ik_ben_vermoord(['jan', 'piet', 'joris'],'joris'))
+print(ik_ben_vermoord(['jan'],'jan'))
