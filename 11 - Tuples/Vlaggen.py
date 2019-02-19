@@ -11,3 +11,7 @@ def vlag(richting, kleuren):
     return message
 
 print(vlag('verticaal',('zwart', 'geel', 'rood')))
+
+'''#beter
+'\n-\n' bij horizontaal en
+' | ' bij verticaal'''
