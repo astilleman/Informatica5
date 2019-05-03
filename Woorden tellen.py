@@ -50,3 +50,37 @@ def meest_gebruikte_woorden(tekstje):
     return woorden_per_frequentie(tekstje).get(max(woorden_per_frequentie(tekstje)))
 
 #print(meest_gebruikte_woorden('Dit is een zin. En nog een zin. En een laatste zin.'))
+
+
+####################################################################################"
+'''def woord_frequentie(tekst):
+
+    tekst = tekst.lower()
+    tekst = tekst.replace('.', ' ')
+    tekst = tekst.replace(',', ' ')
+    tekst = tekst.split()
+
+    dictionary = {}
+
+    for woord in tekst:
+
+        if woord in dictionary:
+            dictionary[woord] += 1
+
+        else:
+            dictionary[woord] = 1
+
+    return dictionary
+    
+def woorden_per_frequentie(tekst):
+
+    dictionary = {}
+
+    for woord in woord_frequentie(tekst):
+        if woord_frequentie(tekst).get(woord) in dictionary:
+            dictionary[woord_frequentie(tekst).get(woord)].append(woord)
+        else:
+            dictionary[woord_frequentie(tekst).get(woord)] = [woord]
+
+    return dictionary'''
+
