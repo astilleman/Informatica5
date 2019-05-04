@@ -16,4 +16,23 @@ def synoniemen(zin, synoniemen):
     return zin
 
 
-#print(synoniemen('knoeien levert stoute leerlingen een straf op',{'straf': 'sanctie', 'stout': 'kwaadaardig', 'leerling': 'cursist', 'leraar': 'docent', 'school': 'troep', 'knoeien': 'broddelen', 'kwaad': 'gebelgd', 'slecht': 'beroerd'}))
+print(synoniemen('op school heb je best geen slechte manieren',{'straf': 'sanctie', 'stout': 'kwaadaardig', 'leerling': 'cursist', 'leraar': 'docent', 'school': 'troep', 'knoeien': 'broddelen', 'kwaad': 'gebelgd', 'slecht': 'beroerd'}))
+
+#############################zelf(mog2)
+
+'''def synoniemen(tekst, woordenboek):
+
+    tekst = tekst.split()
+
+    mes = []
+
+    for woord in tekst:
+
+        if woord in woordenboek:
+            woord = woordenboek.get(woord)
+
+        mes.append(woord)
+
+    mes = ' '.join(mes)
+
+    return mes'''

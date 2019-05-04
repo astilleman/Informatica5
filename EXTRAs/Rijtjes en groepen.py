@@ -31,21 +31,24 @@ def rijtje(stenen):
     sorted_stenen.extend(stenen_lengte3)
     i = 1
     mes = True
-    kleur = sorted_stenen[0][1]
+    if len(sorted_stenen[0]) == 2:
+        kleur = sorted_stenen[0][1]
+    else:
+        kleur = sorted_stenen[0][2]
     while i < len(sorted_stenen) and mes is True:
         if len(sorted_stenen[i]) == 2:
-            if int(stenen[i][0]) != int(stenen[i-1][0]) + 1 or sorted_stenen[i][1] != kleur:
+            if int(sorted_stenen[i][0]) != int(sorted_stenen[i-1][0]) + 1 or sorted_stenen[i][1] != kleur:
                 mes = False
         elif len(sorted_stenen[i]) == 3 and len(sorted_stenen[i - 1]) == 2:
-            if int(stenen[i][0:2]) != int(stenen[i-1][0]) + 1 or sorted_stenen[i][2] != kleur:
+            if int(sorted_stenen[i][0:2]) != int(sorted_stenen[i-1][0]) + 1 or sorted_stenen[i][2] != kleur:
                 mes = False
         else:
-            if int(stenen[i][0:2]) != int(stenen[i -1][0:2]) + 1 or sorted_stenen[i][2] != kleur:
+            if int(sorted_stenen[i][0:2]) != int(sorted_stenen[i -1][0:2]) + 1 or sorted_stenen[i][2] != kleur:
                 mes = False
         i += 1
     return mes
 
-print(rijtje(['4R', '4B', '4G', '4Z']))
-print(rijtje({'6B', '7B', '8B', '9B', '10B'}))
-print(rijtje(('11R', '2B', '7G', '2B', '9Z')))
 
+#print(rijtje(['4R', '4B', '4G', '4Z']))
+#print(rijtje({'6B', '7B', '8B', '9B', '10B'}))
+#print(rijtje(('11R', '2B', '7G', '2B', '9Z')))

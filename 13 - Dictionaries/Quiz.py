@@ -1,6 +1,6 @@
 def verlaat_ploeg(deelnemer, ploeg, inschrijvingen):
 
-    if ploeg in inschrijvingen and len(inschrijvingen[ploeg]) > 1:
+    if len(inschrijvingen[ploeg]) > 1:
         inschrijvingen[ploeg].remove(deelnemer)
 
     else:

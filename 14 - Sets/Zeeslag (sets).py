@@ -18,10 +18,20 @@ def vuur(vakje, co):
     if parameter.issubset(co) is True:
         mes = True
         co.remove(vakje)
-
     else:
-        mes = False
+         mes = False
     return mes, co
 
 #print(vuur('I7',{'E4', 'H8', 'I8', 'A2', 'G8', 'D4', 'C4', 'F8'}))
 #print(vuur('F8',{'E4', 'H8', 'I8', 'A2', 'G8', 'D4', 'C4', 'F8'}))
+
+'''def boot_overlappend(co1, co2):
+    return not co1.isdisjoint(co2)
+    
+    def vuur(vakje, co):
+    if vakje in co:
+        mes = True
+        co.discard(vakje)
+    else:
+        mes = False
+    return mes, co'''

@@ -82,5 +82,40 @@ def woorden_per_frequentie(tekst):
         else:
             dictionary[woord_frequentie(tekst).get(woord)] = [woord]
 
-    return dictionary'''
+    return dictionary
+    
+#################laatste versie
+
+def woord_frequentie(tekst):
+    freq_dict = {}
+    tekst = tekst.replace('.', '')
+    tekst = tekst.replace(',', '')
+    tekst = tekst.lower()
+    tekst = tekst.split()
+    for woord in tekst:
+        if woord in freq_dict:
+            freq_dict[woord] += 1
+        else:
+            freq_dict[woord] = 1
+    return freq_dict
+
+#print(woord_frequentie('Dit is een zin. En nog een zin. En een laatste zin.'))
+
+def woorden_per_frequentie(tekst):
+    freq_dict = {}
+    for key, value in woord_frequentie(tekst).items():
+        if value in freq_dict:
+            freq_dict[value].append(key)
+        else:
+            freq_dict[value] = [key]
+    return freq_dict
+
+#print(woorden_per_frequentie('Dit is een zin. En nog een zin. En een laatste zin.'))
+
+def meest_gebruikte_woorden(tekst):
+    return woorden_per_frequentie(tekst).get(max(woorden_per_frequentie(tekst)))
+
+#print(meest_gebruikte_woorden('Dit is een zin. En nog een zin. En een laatste zin.'))
+    
+    '''
 
