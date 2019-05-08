@@ -1,51 +1,48 @@
-def groep(stenen):
-    stenen = list(stenen)
-    i = 1
-    mes = True
-    cijfer = stenen[0][0]
-    kleur = stenen[0][1]
-    while i < len(stenen) and mes is True:
-        if stenen[i][0] != cijfer or stenen[i][1] == kleur:
-            mes = False
-        i += 1
-    return mes
+ruilmarkt = {'goud': {'wol', 'steen', 'erts'}, 'wol': {'hout', 'steen', 'erts'}, 'erts': {'hout', 'steen'}, 'steen': {'hout', 'graan'}}
 
-#print(groep(['4R', '4B', '4G', '4Z']))
-#print(groep({'6B', '7B', '8B', '9B', '10B'}))
-#print(groep(('11R', '2B', '7G', '2B', '9Z')))
+def bereken_ruilmiddelen(ruilmarkt, gewenst):
+    grondstof_dictionary = {}
+    for grondstof in gewenst:
+        ruilmiddelen = ruilmarkt.get(grondstof)
+        for ruilmiddel in ruilmiddelen:
+            if ruilmiddel in grondstof_dictionary:
+                grondstof_dictionary[ruilmiddel] += 1
+            else:
+                grondstof_dictionary[ruilmiddel] = 1
+    return grondstof_dictionary
 
+#print(bereken_ruilmiddelen(ruilmarkt, ['wol']))
+#print(bereken_ruilmiddelen(ruilmarkt, ['goud', 'erts', 'erts']))
 
-def rijtje(stenen):
-    stenen = list(stenen)
-    stenen_lengte2 = []
-    stenen_lengte3 = []
-    sorted_stenen = []
-    for steen in stenen:
-        if len(steen) == 2:
-            stenen_lengte2.append(steen)
+def inventaris(verzameld):
+    bezit = {}
+    for grondstof in verzameld:
+        if grondstof in bezit:
+            bezit[grondstof] += 1
         else:
-            stenen_lengte3.append(steen)
-    stenen_lengte2.sort()
-    stenen_lengte3.sort()
-    sorted_stenen.extend(stenen_lengte2)
-    sorted_stenen.extend(stenen_lengte3)
-    i = 1
+            bezit[grondstof] = 1
+    return bezit
+
+def wisselen_mogelijk(ruilmarkt, gewenst, verzameld):
+    nodig = bereken_ruilmiddelen(ruilmarkt, gewenst)
+    bezit = inventaris(verzameld)
     mes = True
-    kleur = sorted_stenen[0][1]
-    while i < len(sorted_stenen) and mes is True:
-        if len(sorted_stenen[i]) == 2:
-            if int(stenen[i][0]) != int(stenen[i-1][0]) + 1 or sorted_stenen[i][1] != kleur:
+    for grondstof in nodig:
+            if grondstof not in bezit or nodig.get(grondstof) > bezit.get(grondstof) or mes is False:
                 mes = False
-        elif len(sorted_stenen[i]) == 3 and len(sorted_stenen[i - 1]) == 2:
-            if int(stenen[i][0:2]) != int(stenen[i-1][0]) + 1 or sorted_stenen[i][2] != kleur:
-                mes = False
-        else:
-            if int(stenen[i][0:2]) != int(stenen[i -1][0:2]) + 1 or sorted_stenen[i][2] != kleur:
-                mes = False
-        i += 1
     return mes
+#print(wisselen_mogelijk(ruilmarkt, ['erts', 'erts'] ,['steen', 'hout', 'wol', 'steen', 'steen', 'hout']))
+#print(wisselen_mogelijk(ruilmarkt, ['erts', 'goud'] ,['wol', 'steen', 'erts', 'hout', 'wol']))
 
-print(rijtje(['4R', '4B', '4G', '4Z']))
-print(rijtje({'6B', '7B', '8B', '9B', '10B'}))
-print(rijtje(('11R', '2B', '7G', '2B', '9Z')))
 
+def wisselen(ruilmarkt, grondstoffen, verzameld):
+    if wisselen_mogelijk(ruilmarkt, grondstoffen, verzameld) is True:
+        for grondstof in grondstoffen:
+            nodige_grondstoffen = ruilmarkt.get(grondstof)
+            for nodige_grondstof in nodige_grondstoffen:
+                verzameld.remove(nodige_grondstof)
+            verzameld.append(grondstof)
+    return verzameld
+
+print(wisselen(ruilmarkt, ['erts', 'erts'],['steen', 'hout', 'wol', 'steen', 'steen', 'hout'] ))
+#print(wisselen(ruilmarkt, ['erts', 'goud'], ['graan', 'erts', 'steen', 'steen', 'erts', 'erts', 'hout', 'goud']))
